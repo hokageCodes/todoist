@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/auth";
+import "firebase/firestore";
 import './Onboarding.css'
 
 
@@ -26,9 +27,14 @@ const OnboardingScreen = () => {
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password);
-        await firebase.auth().currentUser.updateProfile({
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+        await user.updateProfile({
             displayName: name,
+        });
+        const db = firebase.firestore();
+        await db.collection("todos").doc(user.uid).set({
+            items: [],
         });
         navigate("/");
         } catch (error) {
@@ -56,7 +62,6 @@ const OnboardingScreen = () => {
         setPassword(value);
         }
     };
-
     return (
         <div className="onboarding">
         <form className="onboardingForm" onSubmit={isLogin ? handleLogin : handleSignUp}>
