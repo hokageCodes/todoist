@@ -52,7 +52,7 @@ const HomePage = () => {
             batch.delete(taskRef);
         });
         await batch.commit();
-      };
+    };
 
     const handleLogout = () => {
         firebase.auth().signOut();
