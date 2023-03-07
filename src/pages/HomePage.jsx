@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import "firebase/auth";
-import Task from "../components/Tasks";
+import Task from "../components/Tasks/Tasks";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
     const [filter, setFilter] = useState("all");
+    const navigate = useNavigate()
 
     useEffect(() => {
         const unsubscribe = firebase
@@ -54,6 +56,7 @@ const HomePage = () => {
 
     const handleLogout = () => {
         firebase.auth().signOut();
+        navigate("/")
     }
     
     return (

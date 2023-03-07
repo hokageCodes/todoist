@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/auth";
+import './Onboarding.css'
 
 
 const OnboardingScreen = () => {
@@ -58,8 +59,8 @@ const OnboardingScreen = () => {
 
     return (
         <div className="onboarding">
-        <h1 className="title">{isLogin ? "Welcome Back!" : "Get Started With Task Tracker"}</h1>
         <form className="onboardingForm" onSubmit={isLogin ? handleLogin : handleSignUp}>
+        <h1 className="title">{isLogin ? "Welcome Back!" : "Task Tracker"}</h1>
             {!isLogin && (
             <input
                 type="text"
@@ -99,11 +100,11 @@ const OnboardingScreen = () => {
             </span>
             </p>
             {error && <div className="error">{error}</div>}
+            <button className="google-button" onClick={signInWithGoogle}>
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" />
+                {isLogin ? "Sign in" : "Sign up"} with Google
+            </button>
         </form>
-        <button className="google-button" onClick={signInWithGoogle}>
-            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" />
-            {isLogin ? "Sign in" : "Sign up"} with Google
-        </button>
         </div>
     );
 };

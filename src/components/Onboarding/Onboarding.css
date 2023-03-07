@@ -1,0 +1,169 @@
+.onboarding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1586281380923-93c9b0a7296e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .onboardingForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 35vw;
+    background-color: purple;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+.onboardingForm h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+  
+.onboardingForm input {
+    width: 72%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+  
+.onboardingForm>.button {
+    margin: 1rem 0 0 0;
+    height: 45px;
+    width: 340px;
+    border: none;
+    border-radius: 5px;
+    background-color: #48bb78;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+  
+.google-button {
+    width: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+  
+.google-button img {
+    margin-right: 0.5rem;
+}
+  
+.link {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration: none;
+    margin: 0 0.2rem;
+}
+  
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+  
+/* Mobile and Tablet layout */
+@media screen and (max-width: 768px) {
+  .onboardingForm {
+      width: 90%;
+      height: auto;
+  }
+
+  .onboardingForm > .button {
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .onboardingForm {
+      width: 95%;
+      height: auto;
+  }
+
+  .onboardingForm h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+  }
+
+  .onboardingForm input {
+      width: 80%;
+  }
+
+  .onboardingForm > .button {
+      width: 100%;
+  }
+
+  .google-button {
+      width: 200px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .onboardingForm {
+    width: 90%;
+    height: auto;
+  }
+
+  .onboardingForm input {
+    width: 90%;
+  }
+
+  .onboardingForm > .button {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .onboardingForm {
+    width: 90%;
+    height: 70vh;
+    font-size: 0.8rem;
+  }
+  
+  .onboardingForm input {
+    width: 85%;
+  }
+  
+  .onboardingForm>.button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  .google-button {
+    width: 70%;
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+  
+  .google-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+  
+  .link {
+    font-size: 0.8rem;
+  }
+}

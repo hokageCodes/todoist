@@ -7,7 +7,7 @@ import Homepage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import "./App.css";
 import firebaseConfig from "./FirebaseConfig";
-import OnboardingScreen from "./components/Onboarding";
+import OnboardingScreen from "./components/Onboarding/Onboarding";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
