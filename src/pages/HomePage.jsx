@@ -28,24 +28,12 @@ const HomePage = () => {
     const addTask = async (e) => {
         e.preventDefault();
         if (!newTask.trim()) return;
-    
-        // Get the current user ID
-        const userId = firebase.auth().currentUser.uid;
-    
-        // Create the new task object with a userId field
-        const newTaskData = {
+        const docRef = await firebase.firestore().collection("tasks").add({
             title: newTask,
             isCompleted: false,
-            userId: userId,
-        };
-    
-        // Add the new task to the Firestore collection
-        const docRef = await firebase.firestore().collection("tasks").add(newTaskData);
-    
-        // Update the state with the new task data, including the generated ID
-        setTasks([...tasks, { ...newTaskData, id: docRef.id }]);
-    
-        // Clear the input field
+        });
+        const newTaskData = { id: docRef.id, title: newTask, isCompleted: false };
+        setTasks([...tasks, newTaskData]);
         setNewTask("");
     };
     
@@ -64,7 +52,7 @@ const HomePage = () => {
             batch.delete(taskRef);
         });
         await batch.commit();
-    };
+      };
 
     const handleLogout = () => {
         firebase.auth().signOut();
